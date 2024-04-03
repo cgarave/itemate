@@ -25,6 +25,38 @@ function addToList(){
     localSave.saveData();
 }
 
+function editItem(event){
+    document.getElementById("my_modal_3").showModal();
+    document.getElementById("add-new-item").classList.add("hidden");
+    document.getElementById("update-item").classList.remove("hidden");
+
+    itemName.value = event.target.parentNode.parentNode.parentNode.children[0].innerHTML;
+    itemBP.value = event.target.parentNode.parentNode.parentNode.children[1].innerHTML;
+    itemWP.value = event.target.parentNode.parentNode.parentNode.children[2].innerHTML;
+    itemRP.value = event.target.parentNode.parentNode.parentNode.children[3].innerHTML;
+
+    document.getElementById("update-item").onclick = () => {
+        if (itemName.value == "" || isNaN(itemBP.value) || isNaN(itemWP.value) || isNaN(itemRP.value)){
+            console.log("Invalid input") 
+        } else {
+            event.target.parentNode.parentNode.parentNode.children[0].innerHTML = itemName.value;
+            event.target.parentNode.parentNode.parentNode.children[1].innerHTML = itemBP.value;
+            event.target.parentNode.parentNode.parentNode.children[2].innerHTML = itemWP.value;
+            event.target.parentNode.parentNode.parentNode.children[3].innerHTML = itemRP.value;
+        }
+    };
+}
+
+function clearInput(){
+    document.getElementById("add-new-item").classList.remove("hidden");
+    document.getElementById("update-item").classList.add("hidden");
+
+    itemName.value = "";
+    itemBP.value = "";
+    itemWP.value = "";
+    itemRP.value = "";
+}
+
 const addNewItem = document.getElementById("add-new-item").onclick = () =>{
     itemName.value == "" || isNaN(itemBP.value) || isNaN(itemWP.value) || isNaN(itemRP.value) 
     ? console.log("Invalid input") 
@@ -37,6 +69,7 @@ const addNewItem = document.getElementById("add-new-item").onclick = () =>{
 };
 
 const actionBtn = document.getElementById("col-container").addEventListener("click", (e) => {
+    e.target.id == "edit-button" && editItem(e);
     e.target.id == "delete-button" && e.target.parentNode.parentNode.parentNode.remove();
     localSave.saveData();
 });

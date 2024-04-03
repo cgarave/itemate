@@ -38,7 +38,7 @@
 <dialog id="my_modal_3" class="modal">
   <div class="modal-box">
     <form method="dialog">
-      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onclick="clearInput()">✕</button>
     </form>
     <h3 class="font-bold text-lg mb-5">Add new item</h3>
     <label class="form-control w-full">
@@ -66,6 +66,7 @@
         <input id="item-rp" type="text" placeholder="Enter retail price" class="input input-bordered w-full placeholder:text-sm placeholder:text-gray-600" />
     </label>
     <button id="add-new-item" class="btn btn-accent w-full mt-5">Add</button>
+    <button id="update-item" class="btn btn-accent w-full mt-5 hidden">Update</button>
   </div>
 </dialog>
 <script src="./script.js"></script>
