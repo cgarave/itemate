@@ -2,68 +2,71 @@
 <html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>Document</title>
     <link rel="stylesheet" href="./src/output.css">
 </head>
 <body class="p-5">
-    <div class="w-full flex flex-row gap-x-2">
-        <label class="input input-bordered flex items-center gap-2 w-full">
-            <input type="text" class="grow" placeholder="Search" />
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 opacity-70"><path fill-rule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clip-rule="evenodd" /></svg>
-        </label>
-        <button id="add-button" class="btn btn-accent" onclick="my_modal_3.showModal()">Add Item</button>
-        <button id="clear-button" class="btn btn-error" onclick="localSave.resetData()">Clear</button>
+    <div class="w-full">
+      <div class="w-auto flex flex-col gap-y-2 sm:flex-row sm:gap-x-2">
+          <label class="input input-bordered flex items-center grow">
+              <input type="text" class="grow" placeholder="Search" />
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 opacity-70"><path fill-rule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clip-rule="evenodd" /></svg>
+          </label>
+          <div class="flex flex-row gap-x-2 w-auto sm:w-fit">
+            <button id="add-button" class="btn w-20 grow btn-accent sm:w-40" onclick="my_modal_3.showModal()">Add Item</button>
+            <button id="clear-button" class="btn w-20 grow sm:w-40" onclick="localSave.resetData()">Clear</button>
+          </div>
+      </div>
+      <div class="overflow-auto w-full">
+          <table class="table table-zebra">
+            <!-- head -->
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Base Price</th>
+                <th>Wholesale Price</th>
+                <th>Retail Price</th>
+              </tr>
+            </thead>
+            <tbody id="col-container">
+            </tbody>
+          </table>
+        </div>
     </div>
-    <div class="overflow-auto h-dvh">
-        <table class="table table-zebra">
-          <!-- head -->
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Base Price</th>
-              <th>Wholesale Price</th>
-              <th>Retail Price</th>
-            </tr>
-          </thead>
-          <tbody id="col-container">
-          </tbody>
-        </table>
-      </div>
-
-    <dialog id="my_modal_3" class="modal">
-      <div class="modal-box">
-        <form method="dialog">
-          <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-        </form>
-        <h3 class="font-bold text-lg mb-5">Add new item</h3>
-        <label class="form-control w-full">
-            <div class="label">
-              <span id="name-label" class="label-text">Item Name</span>
-            </div>
-            <input id="item-name" type="text" placeholder="Enter item name" class="input input-bordered w-full placeholder:text-sm placeholder:text-gray-600" />
-        </label>
-        <label class="form-control w-full">
-            <div class="label">
-              <span class="label-text">Base Price</span>
-            </div>
-            <input id="item-bp" type="text" placeholder="Enter base price" class="input input-bordered w-full placeholder:text-sm placeholder:text-gray-600" />
-        </label>
-        <label class="form-control w-full">
-            <div class="label">
-              <span class="label-text">Wholesale Price</span>
-            </div>
-            <input id="item-wp" type="text" placeholder="Enter wholesale price" class="input input-bordered w-full placeholder:text-sm placeholder:text-gray-600" />
-        </label>
-        <label class="form-control w-full">
-            <div class="label">
-              <span class="label-text">Retail Price</span>
-            </div>
-            <input id="item-rp" type="text" placeholder="Enter retail price" class="input input-bordered w-full placeholder:text-sm placeholder:text-gray-600" />
-        </label>
-        <button id="add-new-item" class="btn btn-accent w-full mt-5">Add</button>
-      </div>
-    </dialog>
 </body>
+<dialog id="my_modal_3" class="modal">
+  <div class="modal-box">
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+    <h3 class="font-bold text-lg mb-5">Add new item</h3>
+    <label class="form-control w-full">
+        <div class="label">
+          <span id="name-label" class="label-text">Item Name</span>
+        </div>
+        <input id="item-name" type="text" placeholder="Enter item name" class="input input-bordered w-full placeholder:text-sm placeholder:text-gray-600" />
+    </label>
+    <label class="form-control w-full">
+        <div class="label">
+          <span class="label-text">Base Price</span>
+        </div>
+        <input id="item-bp" type="text" placeholder="Enter base price" class="input input-bordered w-full placeholder:text-sm placeholder:text-gray-600" />
+    </label>
+    <label class="form-control w-full">
+        <div class="label">
+          <span class="label-text">Wholesale Price</span>
+        </div>
+        <input id="item-wp" type="text" placeholder="Enter wholesale price" class="input input-bordered w-full placeholder:text-sm placeholder:text-gray-600" />
+    </label>
+    <label class="form-control w-full">
+        <div class="label">
+          <span class="label-text">Retail Price</span>
+        </div>
+        <input id="item-rp" type="text" placeholder="Enter retail price" class="input input-bordered w-full placeholder:text-sm placeholder:text-gray-600" />
+    </label>
+    <button id="add-new-item" class="btn btn-accent w-full mt-5">Add</button>
+  </div>
+</dialog>
 <script src="./script.js"></script>
 </html>
