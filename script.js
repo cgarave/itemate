@@ -8,6 +8,21 @@ const localSave = {
     resetData: () => {window.localStorage.clear()},
 }
 
+function searchItem(){
+    var searchInput = document.getElementById("search-input"); //search input box
+    var filter = searchInput.value.toUpperCase();   //Converting the inputed value on textbox to uppercase
+    let list = document.getElementById("col-container").children;    //access all the "tr" elements 
+
+    for(let i = 0; i < list.length; i++){   //loop to all "tr" elements
+        searchNameOfItem = list[i].getElementsByTagName("td")[0]; // access the index 1(item-name) of "td" on the "tr" elements and store it to a new variable
+        if(searchNameOfItem.innerHTML.toUpperCase().indexOf(filter) > -1){ //converts the innerhtml of td[1] to uppercase and begin search using indexOf method passing "filter" and starts to index 0
+            list[i].classList.remove("hidden")
+        } else {
+            list[i].classList.add("hidden")
+        }
+    }
+}
+
 function addToList(){
     let a = document.createElement("tr");
     a.innerHTML = ` <td>${itemName.value}</td>
