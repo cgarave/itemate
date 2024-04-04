@@ -1614,12 +1614,20 @@ html {
   position: absolute;
 }
 
+.sticky {
+  position: sticky;
+}
+
 .right-2 {
   right: 0.5rem;
 }
 
 .top-2 {
   top: 0.5rem;
+}
+
+.top-0 {
+  top: 0px;
 }
 
 .mb-5 {
@@ -1644,6 +1652,26 @@ html {
 
 .h-4 {
   height: 1rem;
+}
+
+.h-52 {
+  height: 13rem;
+}
+
+.h-96 {
+  height: 24rem;
+}
+
+.h-dvh {
+  height: 100dvh;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .w-20 {
@@ -1703,13 +1731,31 @@ html {
   padding: 1.25rem;
 }
 
+.text-center {
+  text-align: center;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
 
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
 .font-bold {
   font-weight: 700;
+}
+
+.font-medium {
+  font-weight: 500;
 }
 
 .uppercase {

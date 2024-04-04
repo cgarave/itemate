@@ -15,13 +15,13 @@
           </label>
           <div class="flex flex-row gap-x-2 w-auto sm:w-fit">
             <button id="add-button" class="btn w-20 grow btn-accent sm:w-40" onclick="my_modal_3.showModal()">Add Item</button>
-            <button id="clear-button" class="btn w-20 grow sm:w-40" onclick="localSave.resetData()">Clear</button>
+            <button id="clear-button" class="btn w-20 grow sm:w-40">Clear</button>
           </div>
       </div>
-      <div class="overflow-auto w-full">
+      <div class="overflow-auto w-full h-dvh">
           <table class="table table-zebra">
             <!-- head -->
-            <thead>
+            <thead class="sticky top-0">
               <tr>
                 <th>Name</th>
                 <th>Base Price</th>
@@ -35,6 +35,7 @@
         </div>
     </div>
 </body>
+
 <dialog id="my_modal_3" class="modal">
   <div class="modal-box">
     <form method="dialog">
@@ -69,5 +70,19 @@
     <button id="update-item" class="btn btn-accent w-full mt-5 hidden">Update</button>
   </div>
 </dialog>
+
+<dialog id="clear-modal" class="modal">
+  <div class="modal-box">
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onclick="clearInput()">✕</button>
+    </form>
+    <h3 class="font-bold text-base mb-5 text-center">Are you sure you want to clear the list?</h3>
+    <p class="font-medium text-sm">Warning: Clicking yes will delete everything on the list.</p>
+    <form method="dialog">
+      <button id="confirm-clear" class="btn btn-error w-full mt-5">Yes</button>
+    </form>
+  </div>
+</dialog>
+
 <script src="./script.js"></script>
 </html>

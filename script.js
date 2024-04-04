@@ -58,6 +58,8 @@ function editItem(event){
             event.target.parentNode.parentNode.parentNode.children[1].innerHTML = itemBP.value;
             event.target.parentNode.parentNode.parentNode.children[2].innerHTML = itemWP.value;
             event.target.parentNode.parentNode.parentNode.children[3].innerHTML = itemRP.value;
+
+            localSave.saveData();
         }
     };
 }
@@ -88,5 +90,13 @@ const actionBtn = document.getElementById("col-container").addEventListener("cli
     e.target.id == "delete-button" && e.target.parentNode.parentNode.parentNode.remove();
     localSave.saveData();
 });
+
+const clearBtn = document.getElementById("clear-button").onclick = () => {
+    document.getElementById("clear-modal").showModal();
+    document.getElementById("confirm-clear").onclick = () => {
+        localSave.resetData();
+        window.location.reload();
+    }
+}
 
 localSave.loadData();
