@@ -1622,12 +1622,12 @@ html {
   right: 0.5rem;
 }
 
-.top-2 {
-  top: 0.5rem;
-}
-
 .top-0 {
   top: 0px;
+}
+
+.top-2 {
+  top: 0.5rem;
 }
 
 .mb-5 {
@@ -1652,26 +1652,6 @@ html {
 
 .h-4 {
   height: 1rem;
-}
-
-.h-52 {
-  height: 13rem;
-}
-
-.h-96 {
-  height: 24rem;
-}
-
-.h-dvh {
-  height: 100dvh;
-}
-
-.h-full {
-  height: 100%;
-}
-
-.h-screen {
-  height: 100vh;
 }
 
 .w-20 {
